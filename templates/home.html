@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Predictor</title>
+    <style>
+        .container {
+            max-width: 60%;
+            background-color: black;
+            padding: 34px;
+            margin: auto;
+            margin-top: 3.5cm;
+        }
+
+        .container h3,
+        h1 {
+            text-align: center;
+        }
+
+        .container form {
+            text-align: center;
+            margin: 11px;
+        }
+
+        .container input {
+            width: 400px;
+            margin: 8px;
+        }
+    </style>
+</head>
+
+<body bgcolor="light-yellow">
+    <div class="container">
+        <h1 style="color: aliceblue;">STOCK PRICE PREDICTOR</h1><br>
+        <form action="predict" method="POST">
+            {% csrf_token %}
+            <input type="text" name="stock_name" placeholder="Enter stock name" required style="height:1cm; width: 18cm"><br>
+            <input type="number" name="prediction_day" placeholder="Enter prediction day" required style="height: 1cm; width: 18cm"><br>
+            <button style="margin-top: 3%; height: 1cm; width: 3cm">submit</button>
+    </div>
+</body>
+
+</html>
