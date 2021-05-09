@@ -11,7 +11,7 @@
             margin-top: 4%;
             width: 800px;
             height: 400px;
-            border: 10px solid white;
+            border: 10px solid rgb(110, 106, 106);
         }
         div {
             text-align: center;
@@ -21,13 +21,21 @@
 </head>
 <body style="background-color: black;">
     <h1 style="text-align:center; color: white">PREDICTION</h1>
-    <div class="image"></div>
-    <div>
     {% block includes %}
-    <h2>Stock Name: {{ stock_name }}</h2>
-    <h2>Prediction Day: {{ prediction_day }} </h2>
-    <h2>Output: {{ to_show }}</h2>
-    {% endblock includes %}
+    <div class="image">
+        {% if chart1 %}
+            <img src="data:image/png;base64, {{chart1|safe}}">
+        {% endif %}
     </div>
+    <div class="image">
+        {% if chart2 %}
+        <img src="data:image/png;base64, {{chart2|safe}}">
+        {% endif %}
+    </div>
+    <div>
+    <h2>Stock Name: {{ stock_name }}</h2>
+    <h2>Mean Squared Error: {{ mean_squared_error }}</h2>
+    </div>
+    {% endblock includes %}
 </body>
 </html>
