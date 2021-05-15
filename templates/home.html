@@ -36,9 +36,22 @@
         <h1 style="color: aliceblue;">STOCK PRICE PREDICTOR</h1><br>
         <form action="predict" method="POST">
             {% csrf_token %}
-            <input type="text" name="stock_name" placeholder="Enter stock name" required style="height:1cm; width: 18cm"><br>
-            <input type="number" name="prediction_day" placeholder="Enter prediction day" required style="height: 1cm; width: 18cm"><br>
-            <button style="margin-top: 3%; height: 1cm; width: 3cm">submit</button>
+            <label for="cars">Please select a stock to predict:</label><br>
+            <select name="stock_name" id="stock_name" style="height:1cm; width: 18cm">
+                <option value="TCS">TCS</option>
+                <option value="TECHM">TECHM</option>
+                <option value="SBIN">SBIN</option>
+                <option value="RELIANCE">Reliance</option>
+                <option value="LT">LT</option>
+                <option value="INDUSINDBK">INDUSINDBK</option>
+                <option value="ICICIBANK">ICICIBANK</option>
+                <option value="HDFCBANK">HDFCBANK</option>
+                <option value="HCLTECH">HCLTECH</option>
+                <option value="BHARATIARTL">BHARATIARTL</option>
+            </select>
+            <br><br>
+        <button style="margin-top: 3%; height: 1cm; width: 3cm">Predict</button>
+        </form>
     </div>
 </body>
 

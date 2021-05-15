@@ -9,16 +9,55 @@ from sklearn.metrics import mean_squared_error
 from django.shortcuts import render
 from .utils import get_plot
 
-# print("All libraries imported") 
+# print("All libraries imported")  
 # Create your views here.
 def home(request): 
     return render(request, 'home.html')
 
 def predict(request): 
     stock_name = request.POST['stock_name']
-    prediction_day = request.POST['prediction_day']
-    # ML algorithm will go here!
+    # ML algorithm will go here
     df = pd.read_csv(r"C:\Users\user\Desktop\DS\Projects\django_projects\stock_price_prediction\predictor\TCS.csv",encoding='utf-8')
+    if(stock_name == "TCS"):
+        df = pd.read_csv(r"C:\Users\user\Desktop\DS\Projects\django_projects\stock_price_prediction\predictor\TCS.csv",encoding='utf-8')
+        print("TCS Data")
+        print(df.head(5))
+    elif(stock_name == "TECHM"):
+        df = pd.read_csv(r"C:\Users\user\Desktop\DS\Projects\django_projects\stock_price_prediction\predictor\TECHM.csv",encoding='utf-8')
+        print("TECH Mahindra Data")
+        print(df.head(5))
+    elif(stock_name == "SBIN"):
+        df = pd.read_csv(r"C:\Users\user\Desktop\DS\Projects\django_projects\stock_price_prediction\predictor\SBIN.csv",encoding='utf-8')
+        print("SBI Data")
+        print(df.head(5))
+    elif(stock_name == "RELIANCE"):
+        df = pd.read_csv(r"C:\Users\user\Desktop\DS\Projects\django_projects\stock_price_prediction\predictor\RELIANCE.csv",encoding='utf-8')
+        print("RELIANCE Data")
+        print(df.head(5))
+    elif(stock_name == "LT"): 
+        df = pd.read_csv(r"C:\Users\user\Desktop\DS\Projects\django_projects\stock_price_prediction\predictor\LT.csv",encoding='utf-8')  
+        print("LT Data")
+        print(df.head(5))
+    elif(stock_name == "INDUSINDBK"):
+        df = pd.read_csv(r"C:\Users\user\Desktop\DS\Projects\django_projects\stock_price_prediction\predictor\INDUSINDBK.csv",encoding='utf-8')
+        print("INDUSINDBK Data")
+        print(df.head(5))
+    elif(stock_name == "ICICI BANK"):
+        df = pd.read_csv(r"C:\Users\user\Desktop\DS\Projects\django_projects\stock_price_prediction\predictor\ICICI_BANK.csv",encoding='utf-8')
+        print("ICICI Data")
+        print(df.head(5))
+    elif(stock_name=="HDFCBANK"):
+        df = pd.read_csv(r"C:\Users\user\Desktop\DS\Projects\django_projects\stock_price_prediction\predictor\HDFCBANK.csv",encoding='utf-8')
+        print("HDFC Data")
+        print(df.head(5))
+    elif(stock_name=="HCLTECH"):
+        df = pd.read_csv(r"C:\Users\user\Desktop\DS\Projects\django_projects\stock_price_prediction\predictor\HCLTECH.csv",encoding='utf-8')
+        print("HCLTECH Data")
+        print(df.head(5))
+    elif(stock_name == "BHARATIARTL"):
+        df = pd.read_csv(r"C:\Users\user\Desktop\DS\Projects\django_projects\stock_price_prediction\predictor\BHARATIARTL.csv",encoding='utf-8')
+        print("BHARATIARTL Data")
+        print(df.head(5))
     df = df.dropna()
     train_data, test_data = df[0:int(len(df)*0.7)], df[int(len(df)*0.7):]
     training_data = train_data['Close'].values
